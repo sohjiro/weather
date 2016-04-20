@@ -28,8 +28,7 @@ defmodule Weather.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:httpoison, "~> 0.8.2"},
-      {:poison, "~> 2.0"}
+      {:httpoison, "~> 0.8.2"}
     ]
   end
 end
