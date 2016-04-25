@@ -13,13 +13,18 @@ defmodule Weather.XMLParser do
   end
 
   def parse_node(path, xml) do
-    path
-    |> :xmerl_xpath.string(xml)
-    |> extract_text
+    [element]  = :xmerl_xpath.string('/breakfast_menu/food[1]/description', xml)
+    [text]     = xmlElement(element, :content)
+    value      = xmlText(text, :value)
+    IO.inspect to_string(value)
+    value
   end
 
   defp extract_text([xmlText(value: value)]), do: List.to_string(value)
-  defp extract_text(_x), do: nil
+  defp extract_text(x) do
+    IO.puts "x : #{inspect x}"
+    nil
+  end
 
 
 end
