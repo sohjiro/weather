@@ -13,7 +13,7 @@ defmodule Weather.XMLParser do
   end
 
   def text(path, xml) do
-    [element]  = :xmerl_xpath.string(path, xml)
+    [element]  = :xmerl_xpath.string(to_char_list(path), xml)
     [text]     = xmlElement(element, :content)
     value      = xmlText(text, :value)
 
