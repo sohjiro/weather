@@ -14,13 +14,14 @@ defmodule Weather.XMLParserTest do
     """
   end
 
-  test "extracting 'to' from xml" do
+  test "extracting text from xml" do
     xml_parse = Weather.XMLParser.parse!( xml )
 
-    to = Weather.XMLParser.parse_node('/note/to', xml_parse)
-    IO.puts "to : #{inspect to}"
+    to = Weather.XMLParser.text('/note/to', xml_parse)
+    from = Weather.XMLParser.text('/note/from', xml_parse)
 
-    assert to == "tove"
+    assert to == "Tove"
+    assert from == "Jani"
   end
 
 
